@@ -7,7 +7,7 @@
 # get steam id
 $id = $_GET['id'];
 # player profile
-$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=F2284CA26A84165A514B872C0CD862F8&steamids=$id";
+$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=YOUR_API_KEY&steamids=$id";
 $json = file_get_contents($url);
 $data = json_decode($json,true);
 $user = $data['response']['players'];
