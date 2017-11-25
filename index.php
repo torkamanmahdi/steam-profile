@@ -1,4 +1,6 @@
-<center>
+<style>
+    body { text-align: center;}
+</style>
 <form action="" method="get">
     <input type="text" name="id" placeholder="Enter Your Steam ID">
     <input type="submit" value="submit">
@@ -7,7 +9,7 @@
 # get steam id
 $id = $_GET['id'];
 # player profile
-$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=YOUR_API_KEY&steamids=$id";
+$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=53B8F8FA8E99FC83232C2C8CB51BDEB1&steamids=$id";
 $json = file_get_contents($url);
 $data = json_decode($json,true);
 $user = $data['response']['players'];
@@ -42,4 +44,3 @@ switch ($status) {
         break;
 }
 ?>
-</center>
