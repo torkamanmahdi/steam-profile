@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Simple Steam Authentication</title>
+    <meta charset="UTF-8">
+    <title>Simple Steam Authentication</title>
     <style>
         body{
             text-align:center;
@@ -30,17 +30,19 @@
     <div class="container">
         <h1>Simple Steam Authentication</h1>
         <form action="" method="get">
-            <input type="text" name="id" placeholder="Enter Your Steam ID">
+            <input type="text" name="id" placeholder="Enter Your Steam ID and Press Enter">
         </form>
     </div>
     <br>
     <span>Person info :</span>
     <br>
     <?php
+    # YOUR_API_KEY
+    $steamapikey = "YOUR_API_KEY";
     # get steam id
     $id = $_GET['id'];
     # player profile    
-    $url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A448F0F2C258268E1DF30681AD693CDB&steamids=$id";
+    $url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=$steamapikey&steamids=$id";
     $json = file_get_contents($url);
     $data = json_decode($json,true);
     $user = $data['response']['players'];
@@ -79,7 +81,7 @@
     <span>Friends List :</span>
     <br>
     <?php
-        $myurl= "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=A448F0F2C258268E1DF30681AD693CDB&steamid=$id&relationship=friend";
+        $myurl= "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=$steamapikey&steamid=$id&relationship=friend";
         $jsonn = file_get_contents($myurl);
         $dataa = json_decode($jsonn,true);
         $userr = $dataa['friendslist']['friends'];
@@ -92,7 +94,7 @@
     <br>
     <span>Last Game Played :</span>
     <?php
-        $urll="http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=A448F0F2C258268E1DF30681AD693CDB&steamid=$id&format=json";
+        $urll="http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=$steamapikey&steamid=$id&format=json";
         $jsonnn = file_get_contents($urll);
         $dataaa = json_decode($jsonnn,true);
         $userrr = $dataaa['response']['games'];
@@ -101,7 +103,7 @@
     <br>
     <span>Last Match ID :</span>
     <?php
-        $urlll="https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=A448F0F2C258268E1DF30681AD693CDB&steamid=$id&matches_requested=1";
+        $urlll="https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=$steamapikey&steamid=$id&matches_requested=1";
         $jsonnnn = file_get_contents($urlll);
         $dataaaa = json_decode($jsonnnn,true);
         $userrrr = $dataaaa['result']['matches'];
