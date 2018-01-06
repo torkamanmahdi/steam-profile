@@ -76,7 +76,7 @@
     }
     ?>
     <br>
-    <span>3 Friend List :</span>
+    <span>Friends List :</span>
     <br>
     <?php
         $myurl= "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=A448F0F2C258268E1DF30681AD693CDB&steamid=$id&relationship=friend";
@@ -99,7 +99,7 @@
         echo "<br>" .'Game 1 : '.($userrr[0]['name']);
     ?>
     <br>
-    <span>Last Match Number ID :</span>
+    <span>Last Match ID :</span>
     <?php
         $urlll="https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=A448F0F2C258268E1DF30681AD693CDB&steamid=$id&matches_requested=1";
         $jsonnnn = file_get_contents($urlll);
