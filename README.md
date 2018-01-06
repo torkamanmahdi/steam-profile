@@ -7,6 +7,6 @@ go to https://steamcommunity.com/dev/apikey and get your key and replace to YOUR
 
 
 # Changelogs :
-0.1 : Publish [Person info]
-0.2 : Fix Errors
+0.1 : Publish [Person info] <br>
+0.2 : Fix Errors <br>
 0.3 : +add [Friends List] +add [Last Game Played] +add[Last Match ID] // and Update UI
